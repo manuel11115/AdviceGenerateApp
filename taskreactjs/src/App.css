@@ -1,0 +1,278 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: hsl(218, 23%, 16%);
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .container {
+    display: flex;
+    margin: 150px 20px;
+  }
+  .card {
+    display: flex;
+    background-color: hsl(217, 19%, 24%);
+    width: 100%;
+    height: 350px;
+    border-radius: 20px 20px 20px 20px;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-end; */
+  }
+  .card-title {
+    color: hsl(150, 100%, 66%);
+    text-align: center;
+    margin-top: 25px;
+  }
+  .card-text {
+    display: flex;
+    color: hsl(193, 38%, 86%);
+    flex-direction: column;
+    margin: 10px 0 10px 30px;
+    word-wrap: break-word;
+    font-size: 25px;
+    font-weight: bold;
+    padding-right: 20px;
+  }
+  .card-footer-item-line {
+    display: flex;
+    position: absolute;
+    background-color: navy;
+    color: hsl(120, 87%, 40%);
+    width: 33%;
+    float: left;
+    top: 420px;
+    margin-left: 30px;
+    column-width: 100px;
+  }
+  .card-footer-item-line2 {
+    display: flex;
+    position: absolute;
+    background-color: navy;
+    color: hsl(120, 87%, 40%);
+    width: 33%;
+    float: right;
+    top: 420px;
+    right: 50px;
+  }
+  .card-footer-button {
+    display: inline-block;
+    position: absolute;
+    background-color: hsl(150, 100%, 66%);
+    border-radius: 50px;
+    height: 60px;
+    width: 60px;
+    border: none;
+    top: 470px;
+    right: 215px;
+  }
+  .card-footer-button {
+    display: inline-flex;
+    position: absolute;
+    background-color: hsl(150, 68%, 40%);
+    left: 44%;
+  }
+  .card-footer-button:hover {
+    color: hsl(150, 100%, 66%);
+    box-shadow: 0px 0px 10px hsl(150, 100%, 66%);
+  }
+  .card-footer-button svg {
+    display: inline-block;
+    color: black;
+    width: 30px;
+    height: 30px;
+    margin-top: 15px;
+    margin-left: 9px;
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .container {
+    display: flex;
+    margin: 200px 50px;
+  }
+  .card {
+    display: flex;
+    background-color: hsl(217, 19%, 24%);
+    width: 80%;
+    height: 350px;
+    border-radius: 20px 20px 20px 20px;
+    margin-left: 50px;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-title {
+    color: hsl(150, 100%, 66%);
+    text-align: center;
+    margin-top: 25px;
+  }
+  .card-text {
+    display: flex;
+    color: hsl(193, 38%, 86%);
+    flex-direction: column;
+    margin: 10px 0 10px 30px;
+    word-wrap: break-word;
+    font-size: 25px;
+    font-weight: bold;
+    padding-right: 20px;
+  }
+  .card-footer-item-line {
+    display: flex;
+    position: absolute;
+    background-color: navy;
+    color: hsl(120, 87%, 40%);
+    width: 27%;
+    float: left;
+    top: 420px;
+    margin-left: 30px;
+    column-width: 100px;
+  }
+  .card-footer-item-line2 {
+    display: flex;
+    position: absolute;
+    background-color: navy;
+    color: hsl(120, 87%, 40%);
+    width: 27%;
+    float: right;
+    top: 420px;
+    right: 150px;
+  }
+  .card-footer-item-stick {
+    display: flex;
+    position: absolute;
+    background-color: hsl(46, 82%, 46%);
+    top: 320px;
+  }
+  .card-footer-button {
+    display: inline-block;
+    position: absolute;
+    background-color: hsl(150, 100%, 66%);
+    border-radius: 50px;
+    height: 60px;
+    width: 60px;
+    border: none;
+    top: 470px;
+  }
+  .card-footer-button {
+    display: inline-flex;
+    position: absolute;
+    background-color: hsl(150, 68%, 40%);
+    left: 45%;
+  }
+  .card-footer-button:hover {
+    color: hsl(150, 100%, 66%);
+    box-shadow: 0px 0px 10px hsl(150, 100%, 66%);
+  }
+  .card-footer-button svg {
+    display: inline-block;
+    color: black;
+    width: 30px;
+    height: 30px;
+    margin-top: 15px;
+    margin-left: 9px;
+  }
+}
+
+@media (min-width: 1281px) {
+  .container {
+    display: flex;
+    margin: 200px 50px;
+  }
+  .card {
+    display: flex;
+    background-color: hsl(217, 19%, 24%);
+    width: 30%;
+    height: 350px;
+    border-radius: 20px 20px 20px 20px;
+    margin-left: 500px;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-title {
+    color: hsl(150, 100%, 66%);
+    text-align: center;
+    margin-top: 25px;
+  }
+  .card-text {
+    display: flex;
+    color: hsl(193, 38%, 86%);
+    flex-direction: column;
+    margin: 10px 0 10px 30px;
+    word-wrap: break-word;
+    font-size: 25px;
+    font-weight: bold;
+    padding-right: 20px;
+  }
+  .card-footer-item-line {
+    display: flex;
+    position: absolute;
+    background-color: navy;
+    color: hsl(120, 87%, 40%);
+    width: 10%;
+    float: left;
+    top: 420px;
+    margin-left: 30px;
+    column-width: 100px;
+  }
+  .card-footer-item-line2 {
+    display: flex;
+    position: absolute;
+    background-color: navy;
+    color: hsl(120, 87%, 40%);
+    width: 10%;
+    float: right;
+    top: 420px;
+    right: 520px;
+  }
+  .card-footer-item-stick {
+    display: flex;
+    position: absolute;
+    background-color: hsl(46, 82%, 46%);
+    top: 320px;
+  }
+  .card-footer-button {
+    display: inline-block;
+    position: absolute;
+    background-color: hsl(150, 100%, 66%);
+    border-radius: 50px;
+    height: 60px;
+    width: 60px;
+    border: none;
+    top: 470px;
+  }
+  .card-footer-button {
+    display: inline-flex;
+    position: absolute;
+    background-color: hsl(150, 68%, 40%);
+    left: 50%;
+  }
+  .card-footer-button:hover {
+    color: hsl(150, 100%, 66%);
+    box-shadow: 0px 0px 10px hsl(150, 100%, 66%);
+  }
+  .card-footer-button svg {
+    display: inline-block;
+    color: black;
+    width: 30px;
+    height: 30px;
+    margin-top: 15px;
+    margin-left: 9px;
+  }
+}
