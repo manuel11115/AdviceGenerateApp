@@ -1,0 +1,27 @@
+1
+Firulais
+Perro
+3
+Rabia
+1
+Michi
+Gato
+2
+Triple Felina
+1
+Max
+Perro
+1
+Rabia
+1
+Luna
+Gato
+4
+Moquillo
+2
+michi
+2
+Zeus
+3
+4
+5

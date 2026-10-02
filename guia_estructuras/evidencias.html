@@ -1,0 +1,442 @@
+<!doctype html><meta charset=utf-8><title>Evidencias</title><style>
+body{font-family:Arial,sans-serif;font-size:11px} h1{text-align:center}
+pre{background:#f4f4f4;border:1px solid #ccc;padding:6px;white-space:pre-wrap;font-size:10px}
+pre.out{background:#111;color:#8f8} section{page-break-before:always} .f{color:#555}
+h2{background:#e5e5e5;padding:4px}</style>
+<h1>Guía de Estudio – Estructuras de Datos y Simulación (STRUCT)</h1>
+<p style="text-align:center">Programación Básica · Evidencias de código y corridas<br>
+Alumno: ______________________ · Fecha de ejecución: 2026-10-02 · Python 3.11.15</p>
+<h2>Índice de programas</h2><ol><li>Sección 2 – Listas (operaciones, recorrido, registro de compras) – 01_listas.py</li><li>Sección 3 – Tuplas – 02_tuplas.py</li><li>Sección 4 – Conjuntos – 03_conjuntos.py</li><li>Sección 5 – Diccionarios – 04_diccionarios.py</li><li>Sección 6 – Estructuras combinadas – 05_estructuras_combinadas.py</li><li>Ejercicio 1 – Análisis de encuestas – 06_ejercicio1_encuestas.py</li><li>Ejercicio 2 – Agenda digital – 07_ejercicio2_agenda.py</li><li>Ejercicio 3 – Control de inventario – 08_ejercicio3_inventario.py</li><li>Struct 1 – Clases – 09_struct_clase.py</li><li>Struct 2 – namedtuple – 10_struct_namedtuple.py</li><li>Struct 3 – dataclasses – 11_struct_dataclass.py</li><li>Struct 4 – módulo struct (binario) – 12_struct_modulo.py</li><li>Ejemplo práctico combinado (veterinaria) – 13_ejemplo_combinado.py</li><li>Ejercicio integrador final – Veterinaria – 14_integrador_veterinaria.py</li></ol>
+<section><h2>Sección 2 – Listas (operaciones, recorrido, registro de compras)</h2>
+<p class=f>Archivo: <b>01_listas.py</b> · código de salida: 0</p>
+<h3>Código</h3><pre># Seccion 2 - Listas (list)
+frutas = [&quot;manzana&quot;, &quot;pera&quot;, &quot;uva&quot;]
+
+print(frutas[0])            # Acceso: &quot;manzana&quot;
+frutas.append(&quot;kiwi&quot;)       # Agregar
+frutas.remove(&quot;pera&quot;)       # Eliminar
+frutas[1] = &quot;plátano&quot;       # Actualizar
+print(frutas)
+
+# Recorrido
+for fruta in frutas:
+    print(fruta)
+
+# Ejemplo practico - Registro de compras
+compras = []
+for i in range(3):
+    producto = input(&quot;Producto: &quot;)
+    compras.append(producto)
+
+print(&quot;Lista final:&quot;, compras)
+</pre>
+<h3>Corrida</h3><pre class=out>[Entradas tecleadas: leche, pan, huevos]
+
+manzana
+[&#x27;manzana&#x27;, &#x27;plátano&#x27;, &#x27;kiwi&#x27;]
+manzana
+plátano
+kiwi
+Producto: Producto: Producto: Lista final: [&#x27;leche&#x27;, &#x27;pan&#x27;, &#x27;huevos&#x27;]
+</pre></section><section><h2>Sección 3 – Tuplas</h2>
+<p class=f>Archivo: <b>02_tuplas.py</b> · código de salida: 0</p>
+<h3>Código</h3><pre># Seccion 3 - Tuplas (tuple)
+coordenadas = (35.67, -120.45)
+print(&quot;Coordenadas:&quot;, coordenadas)
+
+# Ejemplo - Puntos geograficos
+ciudad = (&quot;León&quot;, 21.12, -101.68)
+print(f&quot;Ciudad: {ciudad[0]}, Latitud: {ciudad[1]}&quot;)
+
+# Inmutabilidad: intentar modificar produce error
+try:
+    ciudad[1] = 0
+except TypeError as e:
+    print(&quot;Error esperado (tupla inmutable):&quot;, e)
+</pre>
+<h3>Corrida</h3><pre class=out>Coordenadas: (35.67, -120.45)
+Ciudad: León, Latitud: 21.12
+Error esperado (tupla inmutable): &#x27;tuple&#x27; object does not support item assignment
+</pre></section><section><h2>Sección 4 – Conjuntos</h2>
+<p class=f>Archivo: <b>03_conjuntos.py</b> · código de salida: 0</p>
+<h3>Código</h3><pre># Seccion 4 - Conjuntos (set)
+materias = {&quot;Matemáticas&quot;, &quot;Física&quot;, &quot;Programación&quot;}
+
+# Operaciones
+materias.add(&quot;Inglés&quot;)
+materias.discard(&quot;Física&quot;)
+print(&quot;Programación&quot; in materias)
+print(sorted(materias))
+
+# Operaciones matematicas
+a = {&quot;Python&quot;, &quot;C++&quot;, &quot;Java&quot;}
+b = {&quot;Python&quot;, &quot;JavaScript&quot;}
+print(sorted(a.union(b)))         # Union
+print(sorted(a.intersection(b)))  # Interseccion
+</pre>
+<h3>Corrida</h3><pre class=out>True
+[&#x27;Inglés&#x27;, &#x27;Matemáticas&#x27;, &#x27;Programación&#x27;]
+[&#x27;C++&#x27;, &#x27;Java&#x27;, &#x27;JavaScript&#x27;, &#x27;Python&#x27;]
+[&#x27;Python&#x27;]
+</pre></section><section><h2>Sección 5 – Diccionarios</h2>
+<p class=f>Archivo: <b>04_diccionarios.py</b> · código de salida: 0</p>
+<h3>Código</h3><pre># Seccion 5 - Diccionarios (dict)
+alumno = {&quot;nombre&quot;: &quot;Ana&quot;, &quot;edad&quot;: 20, &quot;carrera&quot;: &quot;Sistemas&quot;}
+
+print(alumno[&quot;nombre&quot;])
+alumno[&quot;edad&quot;] = 21         # Actualizar
+alumno[&quot;promedio&quot;] = 9.2    # Agregar
+del alumno[&quot;carrera&quot;]       # Eliminar
+
+# Recorrido
+for clave, valor in alumno.items():
+    print(clave, &quot;:&quot;, valor)
+</pre>
+<h3>Corrida</h3><pre class=out>Ana
+nombre : Ana
+edad : 21
+promedio : 9.2
+</pre></section><section><h2>Sección 6 – Estructuras combinadas</h2>
+<p class=f>Archivo: <b>05_estructuras_combinadas.py</b> · código de salida: 0</p>
+<h3>Código</h3><pre># Seccion 6 - Estructuras combinadas: registro de estudiantes
+estudiantes = [
+    {&quot;nombre&quot;: &quot;Ana&quot;, &quot;edad&quot;: 20, &quot;promedio&quot;: 9.1},
+    {&quot;nombre&quot;: &quot;Luis&quot;, &quot;edad&quot;: 22, &quot;promedio&quot;: 8.5},
+    {&quot;nombre&quot;: &quot;María&quot;, &quot;edad&quot;: 21, &quot;promedio&quot;: 9.3},
+]
+
+for est in estudiantes:
+    print(f&quot;{est[&#x27;nombre&#x27;]} tiene promedio {est[&#x27;promedio&#x27;]}&quot;)
+</pre>
+<h3>Corrida</h3><pre class=out>Ana tiene promedio 9.1
+Luis tiene promedio 8.5
+María tiene promedio 9.3
+</pre></section><section><h2>Ejercicio 1 – Análisis de encuestas</h2>
+<p class=f>Archivo: <b>06_ejercicio1_encuestas.py</b> · código de salida: 0</p>
+<h3>Código</h3><pre># Ejercicio 1 - Analisis de encuestas
+lenguajes = [&quot;Python&quot;, &quot;C++&quot;, &quot;Python&quot;, &quot;Java&quot;, &quot;Python&quot;, &quot;C#&quot;]
+
+# Cuantos estudiantes dominan cada lenguaje (sin duplicados)
+unicos = set(lenguajes)
+for l in sorted(unicos):
+    print(l, &quot;→&quot;, lenguajes.count(l))
+
+print(&quot;Lenguajes sin duplicados:&quot;, sorted(unicos))
+</pre>
+<h3>Corrida</h3><pre class=out>C# → 1
+C++ → 1
+Java → 1
+Python → 3
+Lenguajes sin duplicados: [&#x27;C#&#x27;, &#x27;C++&#x27;, &#x27;Java&#x27;, &#x27;Python&#x27;]
+</pre></section><section><h2>Ejercicio 2 – Agenda digital</h2>
+<p class=f>Archivo: <b>07_ejercicio2_agenda.py</b> · código de salida: 0</p>
+<h3>Código</h3><pre># Ejercicio 2 - Agenda digital (agregar, buscar, eliminar, listar)
+agenda = {&quot;Ana&quot;: &quot;4771234567&quot;, &quot;Luis&quot;: &quot;4778901234&quot;}
+
+
+def agregar():
+    nombre = input(&quot;Nombre a agregar: &quot;)
+    agenda[nombre] = input(&quot;Teléfono: &quot;)
+    print(f&quot;Contacto {nombre} agregado.&quot;)
+
+
+def buscar():
+    nombre = input(&quot;Nombre a buscar: &quot;)
+    if nombre in agenda:
+        print(f&quot;Teléfono: {agenda[nombre]}&quot;)
+    else:
+        print(&quot;No encontrado&quot;)
+
+
+def eliminar():
+    nombre = input(&quot;Nombre a eliminar: &quot;)
+    if nombre in agenda:
+        del agenda[nombre]
+        print(f&quot;Contacto {nombre} eliminado.&quot;)
+    else:
+        print(&quot;No encontrado&quot;)
+
+
+def listar():
+    for nombre, tel in agenda.items():
+        print(f&quot;{nombre}: {tel}&quot;)
+
+
+acciones = {&quot;1&quot;: agregar, &quot;2&quot;: buscar, &quot;3&quot;: eliminar, &quot;4&quot;: listar}
+
+while True:
+    print(&quot;\n--- AGENDA ---\n1) Agregar  2) Buscar  3) Eliminar  4) Listar  5) Salir&quot;)
+    op = input(&quot;Opción: &quot;)
+    if op == &quot;5&quot;:
+        break
+    acciones.get(op, lambda: print(&quot;Opción inválida&quot;))()
+</pre>
+<h3>Corrida</h3><pre class=out>[Entradas tecleadas: 2, Ana, 1, Pedro, 5551112222, 2, Pedro, 3, Luis, 2, Luis, 4, 5]
+
+
+--- AGENDA ---
+1) Agregar  2) Buscar  3) Eliminar  4) Listar  5) Salir
+Opción: Nombre a buscar: Teléfono: 4771234567
+
+--- AGENDA ---
+1) Agregar  2) Buscar  3) Eliminar  4) Listar  5) Salir
+Opción: Nombre a agregar: Teléfono: Contacto Pedro agregado.
+
+--- AGENDA ---
+1) Agregar  2) Buscar  3) Eliminar  4) Listar  5) Salir
+Opción: Nombre a buscar: Teléfono: 5551112222
+
+--- AGENDA ---
+1) Agregar  2) Buscar  3) Eliminar  4) Listar  5) Salir
+Opción: Nombre a eliminar: Contacto Luis eliminado.
+
+--- AGENDA ---
+1) Agregar  2) Buscar  3) Eliminar  4) Listar  5) Salir
+Opción: Nombre a buscar: No encontrado
+
+--- AGENDA ---
+1) Agregar  2) Buscar  3) Eliminar  4) Listar  5) Salir
+Opción: Ana: 4771234567
+Pedro: 5551112222
+
+--- AGENDA ---
+1) Agregar  2) Buscar  3) Eliminar  4) Listar  5) Salir
+Opción: </pre></section><section><h2>Ejercicio 3 – Control de inventario</h2>
+<p class=f>Archivo: <b>08_ejercicio3_inventario.py</b> · código de salida: 0</p>
+<h3>Código</h3><pre># Ejercicio 3 - Control de inventario
+inventario = [
+    {&quot;producto&quot;: &quot;Croquetas&quot;, &quot;precio&quot;: 250, &quot;stock&quot;: 20},
+    {&quot;producto&quot;: &quot;Juguete&quot;, &quot;precio&quot;: 100, &quot;stock&quot;: 15},
+    {&quot;producto&quot;: &quot;Shampoo&quot;, &quot;precio&quot;: 180, &quot;stock&quot;: 10},
+]
+
+# Calcular ingresos potenciales
+total = 0
+for item in inventario:
+    subtotal = item[&quot;precio&quot;] * item[&quot;stock&quot;]
+    print(f&quot;{item[&#x27;producto&#x27;]}: {item[&#x27;precio&#x27;]} x {item[&#x27;stock&#x27;]} = {subtotal}&quot;)
+    total += subtotal
+
+print(&quot;Ingreso total si se vende todo:&quot;, total)
+</pre>
+<h3>Corrida</h3><pre class=out>Croquetas: 250 x 20 = 5000
+Juguete: 100 x 15 = 1500
+Shampoo: 180 x 10 = 1800
+Ingreso total si se vende todo: 8300
+</pre></section><section><h2>Struct 1 – Clases</h2>
+<p class=f>Archivo: <b>09_struct_clase.py</b> · código de salida: 0</p>
+<h3>Código</h3><pre># Struct en Python (1) - Usando clases
+class Mascota:
+    def __init__(self, nombre, especie, edad, vacuna):
+        self.nombre = nombre
+        self.especie = especie
+        self.edad = edad
+        self.vacuna = vacuna
+
+
+m1 = Mascota(&quot;Firulais&quot;, &quot;Perro&quot;, 3, &quot;Rabia&quot;)
+m2 = Mascota(&quot;Michi&quot;, &quot;Gato&quot;, 2, &quot;Triple Felina&quot;)
+
+print(m1.nombre, &quot;-&quot;, m1.vacuna)
+print(m2.nombre, &quot;-&quot;, m2.vacuna)
+</pre>
+<h3>Corrida</h3><pre class=out>Firulais - Rabia
+Michi - Triple Felina
+</pre></section><section><h2>Struct 2 – namedtuple</h2>
+<p class=f>Archivo: <b>10_struct_namedtuple.py</b> · código de salida: 0</p>
+<h3>Código</h3><pre># Struct en Python (2) - namedtuple
+from collections import namedtuple
+
+Mascota = namedtuple(&quot;Mascota&quot;, [&quot;nombre&quot;, &quot;especie&quot;, &quot;edad&quot;, &quot;vacuna&quot;])
+
+m1 = Mascota(&quot;Firulais&quot;, &quot;Perro&quot;, 3, &quot;Rabia&quot;)
+m2 = Mascota(&quot;Michi&quot;, &quot;Gato&quot;, 2, &quot;Triple Felina&quot;)
+
+print(m1.nombre)   # Acceso por nombre
+print(m2.vacuna)
+
+try:
+    m1.edad = 4
+except AttributeError as e:
+    print(&quot;Error esperado (namedtuple inmutable):&quot;, e)
+</pre>
+<h3>Corrida</h3><pre class=out>Firulais
+Triple Felina
+Error esperado (namedtuple inmutable): can&#x27;t set attribute
+</pre></section><section><h2>Struct 3 – dataclasses</h2>
+<p class=f>Archivo: <b>11_struct_dataclass.py</b> · código de salida: 0</p>
+<h3>Código</h3><pre># Struct en Python (3) - dataclasses
+from dataclasses import dataclass
+
+
+@dataclass
+class Mascota:
+    nombre: str
+    especie: str
+    edad: int
+    vacuna: str
+
+
+m1 = Mascota(&quot;Firulais&quot;, &quot;Perro&quot;, 3, &quot;Rabia&quot;)
+m2 = Mascota(&quot;Michi&quot;, &quot;Gato&quot;, 2, &quot;Triple Felina&quot;)
+
+print(m1)
+print(m2.nombre)
+</pre>
+<h3>Corrida</h3><pre class=out>Mascota(nombre=&#x27;Firulais&#x27;, especie=&#x27;Perro&#x27;, edad=3, vacuna=&#x27;Rabia&#x27;)
+Michi
+</pre></section><section><h2>Struct 4 – módulo struct (binario)</h2>
+<p class=f>Archivo: <b>12_struct_modulo.py</b> · código de salida: 0</p>
+<h3>Código</h3><pre># Struct en Python (4) - modulo struct (manejo binario)
+import struct
+
+# Empaquetar datos (entero y flotante) en formato binario
+data = struct.pack(&#x27;if&#x27;, 25, 3.14)   # i = int, f = float
+print(&quot;Datos empaquetados:&quot;, data)
+
+# Desempaquetar los datos
+valor = struct.unpack(&#x27;if&#x27;, data)
+print(&quot;Datos originales:&quot;, valor)
+</pre>
+<h3>Corrida</h3><pre class=out>Datos empaquetados: b&#x27;\x19\x00\x00\x00\xc3\xf5H@&#x27;
+Datos originales: (25, 3.140000104904175)
+</pre></section><section><h2>Ejemplo práctico combinado (veterinaria)</h2>
+<p class=f>Archivo: <b>13_ejemplo_combinado.py</b> · código de salida: 0</p>
+<h3>Código</h3><pre># Ejemplo practico combinado - Veterinaria con dataclass
+from dataclasses import dataclass
+
+
+@dataclass
+class Mascota:
+    nombre: str
+    especie: str
+    edad: int
+    vacuna: str
+    costo: float
+
+
+registro = [
+    Mascota(&quot;Firulais&quot;, &quot;Perro&quot;, 3, &quot;Rabia&quot;, 250.0),
+    Mascota(&quot;Michi&quot;, &quot;Gato&quot;, 2, &quot;Triple Felina&quot;, 300.0),
+    Mascota(&quot;Max&quot;, &quot;Perro&quot;, 1, &quot;Parvovirus&quot;, 220.0),
+]
+
+total = 0
+for m in registro:
+    print(f&quot;{m.nombre} ({m.especie}) - Vacuna: {m.vacuna} - ${m.costo}&quot;)
+    total += m.costo
+print(&quot;\nTotal ingresos:&quot;, total)
+</pre>
+<h3>Corrida</h3><pre class=out>Firulais (Perro) - Vacuna: Rabia - $250.0
+Michi (Gato) - Vacuna: Triple Felina - $300.0
+Max (Perro) - Vacuna: Parvovirus - $220.0
+
+Total ingresos: 770.0
+</pre></section><section><h2>Ejercicio integrador final – Veterinaria</h2>
+<p class=f>Archivo: <b>14_integrador_veterinaria.py</b> · código de salida: 0</p>
+<h3>Código</h3><pre># Ejercicio integrador final - Gestion de una veterinaria
+# Usa listas y diccionarios combinados.
+PRECIOS = {&quot;Rabia&quot;: 250.0, &quot;Triple Felina&quot;: 300.0, &quot;Parvovirus&quot;: 220.0, &quot;Moquillo&quot;: 180.0}
+
+mascotas = []  # lista de diccionarios
+
+
+def registrar():
+    nombre = input(&quot;Nombre: &quot;).strip()
+    tipo = input(&quot;Tipo (perro/gato/...): &quot;).strip()
+    edad = int(input(&quot;Edad: &quot;))
+    print(&quot;Vacunas disponibles:&quot;, &quot;, &quot;.join(f&quot;{v} (${p})&quot; for v, p in PRECIOS.items()))
+    vacuna = input(&quot;Vacuna aplicada: &quot;).strip()
+    if vacuna not in PRECIOS:
+        print(&quot;Vacuna no válida, no se registró.&quot;)
+        return
+    mascotas.append({&quot;nombre&quot;: nombre, &quot;tipo&quot;: tipo, &quot;edad&quot;: edad, &quot;vacuna&quot;: vacuna})
+    print(f&quot;Mascota {nombre} registrada.&quot;)
+
+
+def buscar():
+    nombre = input(&quot;Nombre a buscar: &quot;).strip().lower()
+    encontradas = [m for m in mascotas if m[&quot;nombre&quot;].lower() == nombre]
+    if not encontradas:
+        print(&quot;No encontrada&quot;)
+    for m in encontradas:
+        print(f&quot;{m[&#x27;nombre&#x27;]} - {m[&#x27;tipo&#x27;]} - {m[&#x27;edad&#x27;]} años - vacuna: {m[&#x27;vacuna&#x27;]}&quot;)
+
+
+def estadisticas():
+    conteo = {}
+    for m in mascotas:
+        conteo[m[&quot;vacuna&quot;]] = conteo.get(m[&quot;vacuna&quot;], 0) + 1
+    print(&quot;Vacunas aplicadas:&quot;)
+    for vacuna, n in conteo.items():
+        print(f&quot;  {vacuna}: {n}&quot;)
+    print(&quot;Total de vacunas:&quot;, sum(conteo.values()))
+
+
+def ingreso_total():
+    desglose = {}
+    for m in mascotas:
+        desglose[m[&quot;vacuna&quot;]] = desglose.get(m[&quot;vacuna&quot;], 0) + PRECIOS[m[&quot;vacuna&quot;]]
+    for vacuna, monto in desglose.items():
+        print(f&quot;  {vacuna}: ${monto}&quot;)
+    print(&quot;Ingreso total:&quot;, sum(desglose.values()))
+
+
+acciones = {&quot;1&quot;: registrar, &quot;2&quot;: buscar, &quot;3&quot;: estadisticas, &quot;4&quot;: ingreso_total}
+
+while True:
+    print(&quot;\n--- VETERINARIA ---\n1) Registrar  2) Buscar  3) Estadísticas  4) Ingreso total  5) Salir&quot;)
+    op = input(&quot;Opción: &quot;)
+    if op == &quot;5&quot;:
+        break
+    acciones.get(op, lambda: print(&quot;Opción inválida&quot;))()
+</pre>
+<h3>Corrida</h3><pre class=out>[Entradas tecleadas: 1, Firulais, Perro, 3, Rabia, 1, Michi, Gato, 2, Triple, Felina, 1, Max, Perro, 1, Rabia, 1, Luna, Gato, 4, Moquillo, 2, michi, 2, Zeus, 3, 4, 5]
+
+
+--- VETERINARIA ---
+1) Registrar  2) Buscar  3) Estadísticas  4) Ingreso total  5) Salir
+Opción: Nombre: Tipo (perro/gato/...): Edad: Vacunas disponibles: Rabia ($250.0), Triple Felina ($300.0), Parvovirus ($220.0), Moquillo ($180.0)
+Vacuna aplicada: Mascota Firulais registrada.
+
+--- VETERINARIA ---
+1) Registrar  2) Buscar  3) Estadísticas  4) Ingreso total  5) Salir
+Opción: Nombre: Tipo (perro/gato/...): Edad: Vacunas disponibles: Rabia ($250.0), Triple Felina ($300.0), Parvovirus ($220.0), Moquillo ($180.0)
+Vacuna aplicada: Mascota Michi registrada.
+
+--- VETERINARIA ---
+1) Registrar  2) Buscar  3) Estadísticas  4) Ingreso total  5) Salir
+Opción: Nombre: Tipo (perro/gato/...): Edad: Vacunas disponibles: Rabia ($250.0), Triple Felina ($300.0), Parvovirus ($220.0), Moquillo ($180.0)
+Vacuna aplicada: Mascota Max registrada.
+
+--- VETERINARIA ---
+1) Registrar  2) Buscar  3) Estadísticas  4) Ingreso total  5) Salir
+Opción: Nombre: Tipo (perro/gato/...): Edad: Vacunas disponibles: Rabia ($250.0), Triple Felina ($300.0), Parvovirus ($220.0), Moquillo ($180.0)
+Vacuna aplicada: Mascota Luna registrada.
+
+--- VETERINARIA ---
+1) Registrar  2) Buscar  3) Estadísticas  4) Ingreso total  5) Salir
+Opción: Nombre a buscar: Michi - Gato - 2 años - vacuna: Triple Felina
+
+--- VETERINARIA ---
+1) Registrar  2) Buscar  3) Estadísticas  4) Ingreso total  5) Salir
+Opción: Nombre a buscar: No encontrada
+
+--- VETERINARIA ---
+1) Registrar  2) Buscar  3) Estadísticas  4) Ingreso total  5) Salir
+Opción: Vacunas aplicadas:
+  Rabia: 2
+  Triple Felina: 1
+  Moquillo: 1
+Total de vacunas: 4
+
+--- VETERINARIA ---
+1) Registrar  2) Buscar  3) Estadísticas  4) Ingreso total  5) Salir
+Opción:   Rabia: $500.0
+  Triple Felina: $300.0
+  Moquillo: $180.0
+Ingreso total: 980.0
+
+--- VETERINARIA ---
+1) Registrar  2) Buscar  3) Estadísticas  4) Ingreso total  5) Salir
+Opción: </pre></section>
